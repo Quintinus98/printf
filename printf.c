@@ -8,8 +8,8 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, val;
-	char *str, *converted;
+	int i = 0;
+	char *str;
 	int sum = 0;
 
 	va_start(ap, format);
