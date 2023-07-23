@@ -19,10 +19,10 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == ' ')
-				exit(EXIT_FAILURE);
+				return (-1);
 			func = get_print(format[i]);
 			if (!func)
-				exit(EXIT_FAILURE);
+				return (-1);
 			sum += func(ap);
 		}
 		else
