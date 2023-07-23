@@ -9,8 +9,8 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int i = 0;
-	char *str;
 	int sum = 0;
+	int (*func)(va_list);
 
 	va_start(ap, format);
 	while (format && format[i])
@@ -18,30 +18,14 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
-			{
-				case 'c':
-					_putchar(va_arg(ap, int));
-					sum++;
-					break;
-				case '%':
-					_putchar('%');
-					sum++;
-					break;
-				case 's':
-					str = va_arg(ap, char *);
-					_puts(str);
-					sum += xlen(str);
-					break;
-				default:
-					i++;
-					continue;
-			}
+			func = get_print(format[i]);
+			if (!func)
+				exit(99);
+			sum += func(ap);
 		}
 		else
 		{
-			_putchar(format[i]);
-			sum++;
+			sum += _putchar(format[i]);
 		}
 		i++;
 	}
