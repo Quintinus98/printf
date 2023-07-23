@@ -24,7 +24,15 @@ int _printf(const char *format, ...)
 		{
 			tmp++;
 			func = get_print(*tmp);
-			sum += (func) ? func(ap) : _printf("%%%c", *tmp);
+			/** sum += (func) ? func(ap) : _printf("%%%c", *tmp); */
+			if (func)
+			{
+				sum += func(ap);
+			}
+			else if (func == NULL)
+			{
+				return (-1);
+			}
 		}
 		else
 			sum += _putchar(*tmp);
