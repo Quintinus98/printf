@@ -30,8 +30,7 @@ int _printf(const char *format, ...)
 			/** sum += (func) ? func(ap) : _printf("%%%c", *tmp); */
 			if (!func)
 				return (-1);
-			else
-				sum += func(ap);
+			sum += func(ap);
 		}
 		else
 			sum += _putchar(*tmp);
