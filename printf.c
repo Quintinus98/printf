@@ -29,7 +29,6 @@ int _printf(const char *format, ...)
 		else
 			sum += _putchar(*tmp);
 	}
-	_putchar(-1);
 	va_end(ap);
 	return (sum);
 }

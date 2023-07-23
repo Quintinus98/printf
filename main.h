@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 /**
- * print - struct arg
+ * struct print - struct arg
  * @per: The percent
  * @f: The function associated
  *
