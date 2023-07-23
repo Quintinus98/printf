@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		if (*tmp == '%')
 		{
 			tmp++;
-			if (*tmp == ' ')
+			if (!tmp)
 				return (-1);
 
 			func = get_print(*tmp);
