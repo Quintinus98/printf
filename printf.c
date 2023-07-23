@@ -27,10 +27,11 @@ int _printf(const char *format, ...)
 				return (-1);
 
 			func = get_print(*tmp);
-			if (func == -1)
+			/** sum += (func) ? func(ap) : _printf("%%%c", *tmp); */
+			if (!func)
 				return (-1);
-
-			sum += (func) ? func(ap) : _printf("%%%c", *tmp);
+			else
+				sum += func(ap);
 		}
 		else
 			sum += _putchar(*tmp);
