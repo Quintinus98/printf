@@ -23,9 +23,6 @@ int _printf(const char *format, ...)
 		if (*tmp == '%')
 		{
 			tmp++;
-			if (*tmp == ' ' && !*tmp++)
-				return (-1);
-
 			func = get_print(*tmp);
 			sum += (func) ? func(ap) : _printf("%%%c", *tmp);
 		}
