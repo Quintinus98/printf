@@ -1,18 +1,19 @@
 #include "main.h"
-#include <string.h>
 
 /**
- * get_op_func - pointer to function
+ * get_print - pointer to function
  * @s: operator passed as argument to the program
  *
- * Return: Sum of 2 numbers
+ * Return: the function for selected percent.
 */
 int (*get_print(char s))(va_list ap)
 {
 	print_t prints[] = {
 		{'c', print_char},
 		{'s', print_string},
-		{'%', print_per}
+		{'%', print_per},
+		{'d', print_int},
+		{'i', print_int}
 	};
 	int i;
 

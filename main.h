@@ -23,6 +23,7 @@ void _puts(char *s);
 int print_string(va_list ap);
 int print_per(va_list ap);
 int (*get_print(const char s))(va_list ap);
+int print_int(va_list ap);
 
 char *convert(unsigned int val, int base);
 int ilen(int n);
