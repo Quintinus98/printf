@@ -26,5 +26,5 @@ int (*get_print(char s))(va_list ap)
 		i++;
 	}
 
-	return (-1);
+	return (NULL);
 }
