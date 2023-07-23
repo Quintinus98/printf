@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == ' ')
-				return (1);
+				exit(98);
 			
 			func = get_print(format[i]);
 			if (!func)
