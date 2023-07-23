@@ -6,10 +6,13 @@
 #include <stdlib.h>
 
 /**
- * print - struct arg
+ * struct print - struct arg
  * @per: The percent
  * @f: The function associated
+ *
+ * Description: calls the print functions
 */
+
 typedef struct print
 {
 	char per;

@@ -8,27 +8,28 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0;
 	int sum = 0;
 	int (*func)(va_list);
+	const char *tmp;
 
 	va_start(ap, format);
-	while (format && format[i])
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+
+	for (tmp = format; *tmp; tmp++)
 	{
-		if (format[i] == '%')
+		if (*tmp == '%')
 		{
-			i++;
-			if (format[i] == ' ')
-				return (-1);
-			func = get_print(format[i]);
-			if (!func)
-				return (-1);
-			sum += func(ap);
+			tmp++;
+			func = get_print(*tmp);
+			sum += (func) ? func(ap) : _printf("%%%c", *tmp);
 		}
 		else
-			sum += _putchar(format[i]);
-		i++;
+			sum += _putchar(*tmp);
 	}
+	_putchar(-1);
 	va_end(ap);
 	return (sum);
 }
