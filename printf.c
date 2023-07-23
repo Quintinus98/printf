@@ -34,6 +34,7 @@ int _printf(const char *format, ...)
 					sum += xlen(str);
 					break;
 				default:
+					i++;
 					continue;
 			}
 		}
