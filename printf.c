@@ -18,15 +18,17 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == ' ')
+				return (1);
+			
 			func = get_print(format[i]);
 			if (!func)
 				exit(99);
+
 			sum += func(ap);
 		}
 		else
-		{
 			sum += _putchar(format[i]);
-		}
 		i++;
 	}
 	va_end(ap);
