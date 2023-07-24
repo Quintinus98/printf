@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int sum = 0;
+	register int sum = 0;
 	int (*func)(va_list);
 	const char *tmp;
 
