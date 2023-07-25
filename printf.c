@@ -1,40 +1,39 @@
 #include "main.h"
+
 /**
- * _printf - printf function
- * @format: const char pointer
- * Return: len of printf.
- */
+ * _printf - prints all arguments.
+ * @format: format
+ * Return: Print
+*/
 int _printf(const char *format, ...)
 {
-	int (*func)(va_list);
-	const char *p;
 	va_list ap;
-
-	register int count = 0;
+	int sum = 0;
+	int (*func)(va_list);
+	const char *tmp;
 
 	va_start(ap, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	for (p = format; *p; p++)
+
+	for (tmp = format; *tmp; tmp++)
 	{
-		if (*p == '%')
+		if (*tmp == '%')
 		{
-			p++;
-			if (*p == '%')
+			tmp++;
+			if (*tmp == '%')
 			{
-				count += _putchar('%');
+				sum += _putchar('%');
 				continue;
 			}
-			func = get_print(*p);
-			count += (func)
-				? func(ap)
-				: _printf("%%%c", *p);
-		} else
-			count += _putchar(*p);
+			func = get_print(*tmp);
+			sum += (func) ? func(ap) : _printf("%%%c", *tmp);
+		}
+		else
+			sum += _putchar(*tmp);
 	}
-	_putchar(-1);
 	va_end(ap);
-	return (count);
+	return (sum);
 }
