@@ -11,7 +11,7 @@ int print_int(va_list ap)
 
 	val = va_arg(ap, int);
 	len = ilen(val);
-	if (val < 0)
+	if (val <= 0)
 	{
 		_putchar('-');
 		val = -val;
