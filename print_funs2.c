@@ -19,7 +19,7 @@ int print_int(va_list ap)
 /**
  * _putint - helper function that recurses
  * an integer and prints all its digits
- * @num: integer to be printed
+ * @n: integer to be printed
  */
 void _putint(int num)
 {
@@ -28,6 +28,7 @@ void _putint(int num)
 		_putchar('-');
 		num = -num;
 	}
+
 	if (num / 10)
 		_putint(num / 10);
 	_putchar((num % 10) + '0');
