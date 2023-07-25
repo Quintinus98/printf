@@ -23,15 +23,19 @@ int print_int(va_list ap)
  */
 void _putint(int num)
 {
+	unsigned int val;
+
 	if (num < 0)
 	{
 		_putchar('-');
-		num = num * (-1);
+		val = num * (-1);
 	}
+	else
+		val = num;
 
-	if (num / 10)
-		_putint(num / 10);
-	_putchar((num % 10) + '0');
+	if (val / 10)
+		_putint(val / 10);
+	_putchar((val % 10) + '0');
 }
 
 /**
