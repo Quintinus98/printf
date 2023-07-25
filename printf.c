@@ -2,7 +2,7 @@
 /**
  * _printf - printf function
  * @format: const char pointer
- * Return: b_len
+ * Return: len of printf.
  */
 int _printf(const char *format, ...)
 {
@@ -27,8 +27,6 @@ int _printf(const char *format, ...)
 				count += _putchar('%');
 				continue;
 			}
-			while (get_flag(*p))
-				p++;
 			func = get_print(*p);
 			count += (func)
 				? func(ap)
