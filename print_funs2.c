@@ -7,13 +7,13 @@
  */
 int print_int(va_list ap)
 {
-	int n = va_arg(ap, int);
-	int res = ilen(n);
+	int val = va_arg(ap, int);
+	int len = ilen(val);
 
-	if (n <= 0)
-		res++;
-	_putint(n);
-	return (res);
+	if (val <= 0)
+		len++;
+	_putint(val);
+	return (len);
 }
 
 /**
