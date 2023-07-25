@@ -72,7 +72,8 @@ int print_per(va_list ap)
 int print_string(va_list ap)
 {
 	char *str = va_arg(ap, char*);
-
+	if (!str)
+		str = "(null)";
 	_puts(str);
 	return (xlen(str));
 }
