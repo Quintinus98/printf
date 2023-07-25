@@ -11,7 +11,6 @@ int print_int(va_list ap)
 
 	if (val <= 0)
 		len++;
-
 	_putint(val);
 	return (len);
 }
