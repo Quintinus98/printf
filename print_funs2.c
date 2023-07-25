@@ -8,11 +8,11 @@
 int print_int(va_list ap)
 {
 	int n = va_arg(ap, int);
-	int res = count_digit(n);
+	int res = ilen(n);
 
 	if (n <= 0)
 		res++;
-	print_number(n);
+	_putint(n);
 	return (res);
 }
 
