@@ -22,8 +22,8 @@ typedef struct print
 int ilen(int n);
 int xlen(char *s);
 void _puts(char *s);
-void _putint(int n);
 int _putchar(char c);
+void _putint(int num);
 int print_char(va_list ap);
 int print_string(va_list ap);
 int print_per(va_list ap);

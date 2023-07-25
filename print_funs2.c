@@ -21,18 +21,13 @@ int print_int(va_list ap)
  * an integer and prints all its digits
  * @n: integer to be printed
  */
-void _putint(int n)
+void _putint(int num)
 {
-	unsigned int num;
-
-	if (n < 0)
+	if (num < 0)
 	{
 		_putchar('-');
-		num = -n;
+		num = -num;
 	}
-	else
-		num = n;
-
 	if (num / 10)
 		_putint(num / 10);
 	_putchar((num % 10) + '0');
