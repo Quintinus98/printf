@@ -45,17 +45,15 @@ void _putint(int n)
 */
 int ilen(int n)
 {
-	unsigned int d = 0;
-	unsigned int u;
+	unsigned int cnt = 0;
 
 	if (n < 0)
-		u = n * -1;
-	else
-		u = n;
-	while (u != 0)
+		n = -n;
+
+	while (n != 0)
 	{
-		u /= 10;
-		d++;
+		n = n / 10;
+		cnt++;
 	}
-	return (d);
+	return (cnt);
 }
