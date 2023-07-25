@@ -37,10 +37,10 @@ int ilen(int n)
  * @base: base
  * Return: Returns a pointer to a char.
 */
-
 char *convert(unsigned int val, int base)
 {
-	char *ap, buffer[50], rep[] = "0123456789ABCDEF";
+	static char buffer[50], rep[] = "0123456789ABCDEF";
+	char *ap;
 
 	ap = &buffer[49];
 	*ap = '\0';
