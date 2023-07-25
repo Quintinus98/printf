@@ -7,9 +7,10 @@
 */
 int print_int(va_list ap)
 {
-	int val, len = ilen(val);
+	int val, len = 0;
 
 	val = va_arg(ap, int);
+	len = ilen(val);
 	if (val < 0)
 	{
 		_putchar('-');
