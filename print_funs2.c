@@ -1,32 +1,38 @@
 #include "main.h"
+
 /**
- * print_int - Prints character
+ * print_int - prints an integer
  * @ap: variable list.
- * Return: length of int
-*/
+ * Return: number of char printed
+ */
 int print_int(va_list ap)
 {
-	int val = va_arg(ap, int);
-	int len = ilen(val);
+	int n = va_arg(ap, int);
+	int res = count_digit(n);
 
-	if (val <= 0)
-		len++;
-	_putint(val);
-	return (len);
+	if (n <= 0)
+		res++;
+	print_number(n);
+	return (res);
 }
 
 /**
- * _putint - puts integer
- * @num: number.
- * Return: Nothing
-*/
-void _putint(int num)
+ * _putint - helper function that recurses
+ * an integer and prints all its digits
+ * @n: integer to be printed
+ */
+void _putint(int n)
 {
-	if (num < 0)
+	unsigned int num;
+
+	if (n < 0)
 	{
 		_putchar('-');
-		num = -num;
+		num = -n;
 	}
+	else
+		num = n;
+
 	if (num / 10)
 		_putint(num / 10);
 	_putchar((num % 10) + '0');
@@ -39,15 +45,17 @@ void _putint(int num)
 */
 int ilen(int n)
 {
-	unsigned int cnt = 0;
+	unsigned int d = 0;
+	unsigned int u;
 
 	if (n < 0)
-		n = -n;
-
-	while (n != 0)
+		u = n * -1;
+	else
+		u = n;
+	while (u != 0)
 	{
-		n = n / 10;
-		cnt++;
+		u /= 10;
+		d++;
 	}
-	return (cnt);
+	return (d);
 }

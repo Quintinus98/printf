@@ -19,6 +19,11 @@ typedef struct print
 	int (*f)(va_list ap);
 } print_t;
 
+char *convert(unsigned int val, int base);
+int ilen(int n);
+int xlen(char *s);
+
+void _putint(int num);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list ap);
@@ -27,10 +32,5 @@ int print_string(va_list ap);
 int print_per(va_list ap);
 int (*get_print(const char s))(va_list ap);
 int print_int(va_list ap);
-void _putint(int num);
-
-char *convert(unsigned int val, int base);
-int ilen(int n);
-int xlen(char *s);
 
 #endif
