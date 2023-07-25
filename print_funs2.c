@@ -26,7 +26,7 @@ void _putint(int num)
 	if (num < 0)
 	{
 		_putchar('-');
-		num = -num;
+		num = num * (-1);
 	}
 
 	if (num / 10)
