@@ -19,7 +19,7 @@ int print_int(va_list ap)
 /**
  * _putint - helper function that recurses
  * an integer and prints all its digits
- * @n: integer to be printed
+ * @num: integer to be printed
  */
 void _putint(int num)
 {
